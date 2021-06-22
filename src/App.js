@@ -5,13 +5,15 @@ import {
 } from 'react-router-dom'
 import SignUpForm from './components/SignUpForm'
 import LogInForm from './components/LogInForm'
-import ProtectedUsersButton from './components/ProtectedUsersButton'
+import Home from './container/Home'
+import CloseWindow from './components/CloseWindow'
 import Top from './components/Top'
 import './App.css';
 
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+
   const handleLogin = () => setIsLoggedIn(true)
   const handleLogout = () => setIsLoggedIn(false)
 
@@ -34,11 +36,16 @@ function App() {
     <div className="h-screen flex flex-col font-body">
       <Router>
         <Top isLoggedIn={isLoggedIn}></Top>
+        <Route exact path="/" component={Home}></Route>
+        <Route path="/callback" render={() => <CloseWindow />}></Route>
         <Route path="/signup" component={SignUpForm}></Route>
-        <Route path="/login" render={() => <LogInForm isLoggedIn={isLoggedIn} handleLogin={handleLogin} />}></Route>
+        <Route path="/login" render={() => <LogInForm
+          isLoggedIn={isLoggedIn}
+          handleLogin={handleLogin}
+        />}></Route>
       </Router>
 
-    </div>
+    </div >
   );
 }
 

@@ -8,7 +8,7 @@ export default function SignUpForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3001/users', {
+    fetch('http://ftf-backend.herokuapp.com/users', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
