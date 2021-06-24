@@ -28,7 +28,6 @@ export default function SpotifyLogin(props) {
     const clientId = '6c33cdb5e2154f16bb2d68649c8b5f4e'
     const clientSecret = '9ec21b7ca3254ec48933cee44aee28ab'
     var encodedData = window.btoa(clientId + ':' + clientSecret)
-    const redirect_uri = "http%3A%2F%2Flocalhost%3A3000%2Fcallback"
     var authorizationHeaderString = 'Basic ' + encodedData
 
 
